@@ -1,0 +1,30 @@
+{
+	"name": "recipes-website",
+	"version": "1.0.0",
+	"description": "",
+	"main": "/source/index.js",
+	"scripts": {
+		"dev": "npx tailwindcss -i tailwind.css -o ./source/style.css --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/devendran-odin/Recipes-website.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/devendran-odin/Recipes-website/issues"
+	},
+	"homepage": "https://github.com/devendran-odin/Recipes-website#readme",
+	"devDependencies": {
+		"dotenv-webpack": "^8.0.1",
+		"prettier": "^3.0.2",
+		"prettier-plugin-tailwindcss": "^0.5.3",
+		"snowpack": "^3.8.8",
+		"tailwindcss": "^3.3.3"
+	},
+	"dependencies": {
+		"dotenv": "^16.3.1"
+	}
+}

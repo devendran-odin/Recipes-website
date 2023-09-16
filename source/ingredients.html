@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth scroll-pt-20 h-full">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Delicious | Ingredients</title>
+		<link rel="icon" type="image/x-icon" href="/assets/icon.png" />
+		<link rel="stylesheet" href="./style.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+			rel="stylesheet"
+		/>
+		<script src="ingredients.js" defer></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+			integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+	</head>
+	<body
+		class="font-DMserif bg-slate-50 min-h-full flex flex-col"
+		id="recipe-page"
+	>
+		<!-- Mobile nav links -->
+		<div class="hidden md:hidden" id="mobile-menu">
+			<div class="my-3 mx-5 flex flex-col">
+				<div class="flex justify-end">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="w-8 h-8 mt-1.5 mr-0.5"
+						id="mobileMenuCloseBtn"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M6 18L18 6M6 6l12 12"
+						/>
+					</svg>
+				</div>
+				<div class="flex-col flex mx-auto text-2xl items-center mt-28">
+					<a
+						href="/source/index.html"
+						class="links py-7 px-5 hover:text-orange-500"
+						>Home</a
+					>
+					<a
+						href="/source/index.html#popular"
+						class="links py-7 px-5 hover:text-orange-500"
+						>Popular</a
+					>
+					<a
+						href="/source/index.html#trending"
+						class="links py-7 px-5 hover:text-orange-500"
+						>Trending</a
+					>
+					<a
+						href="/source/userRecipe.html"
+						class="my-4 px-4 py-2.5 rounded-md bg-orange-500 text-white hover:bg-orange-400"
+						>Recipes</a
+					>
+				</div>
+			</div>
+		</div>
+
+		<!-- nav links -->
+		<div class="md:block" id="navbar">
+			<div
+				class="flex items-center bg-slate-50 py-2.5 px-6 md:px-8 md:py-3 justify-between border-b sticky top-0"
+			>
+				<div>
+					<img
+						src="/assets/logo.png"
+						alt="Delicious"
+						class="h-[48px] w-40 md:w-[13rem] md:h-[52px]"
+					/>
+				</div>
+				<div class="block md:hidden" id="hamburger-menu">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="w-8 h-8 font-bold cursor-pointer"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+						/>
+					</svg>
+				</div>
+				<div class="laptop-screen px-3 text-[19px]">
+					<a
+						href="/source/index.html#home"
+						class="px-3 py-2 mx-1 hover:border-b-orange-400 hover:border-b-2"
+						>Home</a
+					>
+					<a
+						href="/source/index.html#popular"
+						class="px-3 py-2 mx-1 hover:border-b-orange-400 hover:border-b-2"
+						>Popular</a
+					>
+					<a
+						href="/source/index.html#trending"
+						class="px-3 py-2 mx-1 hover:border-b-orange-400 hover:border-b-2"
+						>Trending
+					</a>
+				</div>
+
+				<div class="laptop-screen">
+					<a
+						href="/source/userRecipe.html"
+						class="px-4 mx-1 text-[19px] rounded-md border py-1.5 primary-btn hover:bg-transparent shadow-md hover:border-orange-400 hover:text-black"
+						>Recipes</a
+					>
+				</div>
+			</div>
+
+			<div id="recipe-template" class="hidden">
+				<div class="mx-6 my-5 md:flex lg:mx-8 xl:mx-12">
+					<div class="w-full">
+						<div class="w-full">
+							<img
+								data-image
+								src=""
+								alt=""
+								class="w-full rounded-lg md:w-[36rem] md:h-[24rem] lg:w-[38rem] border border-gray-600"
+							/>
+						</div>
+						<div class="hidden md:block mt-6 px-1">
+							<div class="grid grid-cols-3 gap-3 font-DMsans">
+								<div
+									data-details
+									class="grid place-items-center border border-gray-600 p-1.5 rounded-sm hover:border-black xl:py-2 mt-2"
+								></div>
+								<div
+									data-details
+									class="grid place-items-center border border-gray-600 p-1.5 rounded-sm hover:border-black xl:py-2 mt-2"
+								></div>
+								<div
+									data-details
+									class="grid place-items-center border border-gray-600 p-1.5 rounded-sm hover:border-black xl:py-2 mt-2"
+								></div>
+								<div
+									data-details
+									class="grid place-items-center border border-gray-600 p-1.5 rounded-sm hover:border-black xl:py-2 mt-2"
+								></div>
+								<div
+									data-details
+									class="grid place-items-center border border-gray-600 p-1.5 rounded-sm hover:border-black xl:py-2 mt-2"
+								></div>
+								<div
+									data-details
+									class="grid place-items-center border border-gray-600 p-1.5 rounded-sm hover:border-black xl:py-2 mt-2"
+								></div>
+								<div
+									data-details
+									class="grid place-items-center border border-gray-600 p-1.5 rounded-sm hover:border-black xl:py-2 mt-2"
+								></div>
+								<div
+									data-details
+									class="grid place-items-center border border-gray-600 p-1.5 rounded-sm hover:border-black xl:py-2 mt-2"
+								></div>
+								<div
+									data-details
+									class="grid place-items-center border border-gray-600 p-1.5 rounded-sm hover:border-black xl:py-2 mt-2"
+								></div>
+							</div>
+
+							<div class="font-DMsans mt-5">
+								<span class="text-xl"
+									>For more information about recipe -
+									<a
+										data-link
+										href=""
+										target="_blank"
+										class="underline underline-offset-4 hover:text-orange-600"
+										>click here</a
+									></span
+								>
+							</div>
+						</div>
+					</div>
+					<div class="my-6 w-full md:mx-8">
+						<div data-label class="text-3xl px-1.5 md:text-4xl"></div>
+						<div class="text-lg py-1.5 px-2 font-DMsans">
+							by <span data-source></span>
+						</div>
+
+						<div class="flex my-4 justify-start w-full">
+							<div
+								class="flex flex-col items-center px-1 md:px-2.5 py-3 mr-2 w-full"
+							>
+								<div class="text-3xl" data-time></div>
+								<div class="font-DMsans py-1">Minutes</div>
+							</div>
+							<div
+								class="border-x border-gray-400 flex flex-col items-center px-2 md:px-2.5 py-3 mx-1 w-full"
+							>
+								<div class="text-3xl" data-numberOfIngredients></div>
+								<div class="font-DMsans py-1">Ingredients</div>
+							</div>
+							<div
+								class="flex flex-col items-center px-1 md:px-2.5 py-3 mr-2 w-full"
+							>
+								<div class="text-3xl" data-calories></div>
+								<div class="font-DMsans py-1">Calories</div>
+							</div>
+						</div>
+
+						<div class="flex justify-start px-0.5 my-5">
+							<div
+								data-cusine
+								class="flex border border-gray-700 mx-2 px-2 py-1 rounded-sm font-DMsans items-center capitalize"
+							></div>
+							<div
+								data-meal
+								class="flex border border-gray-700 mx-2 px-2 py-1 rounded-sm font-DMsans items-center"
+							></div>
+						</div>
+
+						<div
+							class="border-b border-gray-400 px-1.5 py-2.5 text-[1.8rem] flex justify-between items-center"
+						>
+							<div>Ingredients</div>
+							<div class="text-[1rem] font-DMsans">for 1 serving</div>
+						</div>
+
+						<div class="ml-3 mr-2.5 px-3.5 my-3 py-1.5">
+							<ul id="ingredients-list"></ul>
+						</div>
+
+						<div class="mt-4 font-DMsans md:hidden text-lg">
+							<span
+								>For more about recipe -
+								<a
+									data-link
+									href=""
+									target="_blank"
+									class="underline underline-offset-2 hover:text-orange-500"
+									>click here</a
+								></span
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="conatiner-two"></div>
+
+		<!-- Footer section -->
+		<footer
+			class="px-5 mt-auto py-2.5 border shadow-lg md:px-12 font-DMsans"
+			id="footer"
+		>
+			<div class="flex justify-center">
+				<h1 class="text-sm md:text-lg">
+					Copyright <i class="ri-copyright-line"></i> Delicious. Designed
+					by Dev.
+				</h1>
+			</div>
+		</footer>
+
+		<!-- template and skeleton section -->
+		<template id="recipe-skeleton-template">
+			<div class="mx-7 my-5 md:flex md:mx-12 md:my-10">
+				<div class="w-full">
+					<div
+						class="skeleton w-full h-[24rem] rounded-md md:w-[95%]"
+					></div>
+					<div class="skeleton w-[80%] h-10 rounded-md my-3"></div>
+				</div>
+				<div class="md:mx-5 md:w-full">
+					<div class="skeleton rounded-md my-4 w-[85%] h-8"></div>
+					<div class="flex my-4">
+						<div class="skeleton rounded-md w-24 h-6 mr-4"></div>
+						<div class="skeleton rounded-md w-24 h-6 mr-4"></div>
+					</div>
+					<div
+						class="w-[80%] h-[16rem] skeleton rounded-md hidden md:block"
+					></div>
+				</div>
+			</div>
+		</template>
+
+		<div class="ingredient-style hidden"></div>
+	</body>
+</html>

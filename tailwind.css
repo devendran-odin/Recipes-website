@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=DM+Serif+Display&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500&family=Rubik:wght@400;500&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.title {
+		@apply justify-center text-xl font-bold  px-3 py-1;
+	}
+	.skeleton {
+		@apply animate-load opacity-[.7];
+	}
+	.primary-btn {
+		@apply bg-orange-400  text-5xl text-white;
+	}
+	.laptop-screen {
+		@apply hidden md:block;
+	}
+	.activeBorder {
+		@apply border-b-[3px] border-b-orange-400;
+	}
+	.ingredient-style {
+		@apply list-disc font-DMsans  text-lg lg:text-xl pb-2  md:pb-2.5;
+	}
+}
